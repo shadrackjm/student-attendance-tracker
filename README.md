@@ -17,10 +17,10 @@ Tailwind CSS and shadcn/ui, on SQLite.
 | 5 | Students | Optional portal logins with `required_if` and a conditional field |
 | 6 | Taking Attendance | Authorising "your own class", one request per roster, `updateOrCreate` |
 | 7 | Attendance History | Four counts in one query with `withCount`, every row opens the register |
-| 8 | Student Portal | What a student sees |
-| 9 | Dashboard | The admin dashboard and "students to watch" |
-| 10 | Reports & CSV | Reports and CSV export |
-| 11 | Landing Page & Capstone | The landing page and wrap-up |
+| 8 | Student Portal | A student's own page with no id in the URL; sorting across a relationship |
+| 9 | The Dashboard | One route, three role-based pages; a 14-day trend; a Tailwind-only bar chart |
+| 10 | Reports & CSV | Class averages; a memory-safe CSV export with `chunk()` + `streamDownload()` |
+| 11 | Landing Page & Capstone | The AttendEase landing page, Pest smoke tests, a tour of the whole app |
 
 ### Which code to look at
 - **`ep01` tag** — the project at the end of Episode 1: a fresh `laravel new student-attendance --react` starter kit.
@@ -28,7 +28,12 @@ Tailwind CSS and shadcn/ui, on SQLite.
   shows which files it touches (for example Episode 6: `app/Http/Controllers/AttendanceController.php` and
   `resources/js/pages/attendance/take.tsx`).
 
-Compare the two to see everything the series adds:
+Run the smoke tests (Episode 11):
+```bash
+php artisan test --filter=AttendanceSmokeTest
+```
+
+Compare the two tags to see everything the series adds:
 ```bash
 git diff ep01 final --stat
 ```
